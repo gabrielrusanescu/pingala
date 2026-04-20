@@ -34,7 +34,6 @@ int main(){
         perror("Eroare la deschiderea fisierului date.in");
         return 1;
     }
-    long pozstart=ftell(fin);
     int charcnt=0;
     int ch;
     while((ch=fgetc(fin))!=EOF && ch!=' ' && ch!='\n' && ch!='\r'){
@@ -46,7 +45,7 @@ int main(){
         fclose(fin);
         return 1;
     }
-    fseek(fin, pozstart, SEEK_SET);
+    fseek(fin, 0, SEEK_SET);
     unsigned long int exp;
     fscanf(fin, "%s %lu", bazastr, &exp);
     fclose(fin);
